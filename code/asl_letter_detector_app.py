@@ -32,7 +32,7 @@ from PIL import Image
 ########################################
 
 # Loading model from file
-filepath = 'C:/Users/Omar/Documents/GitHub/asl_letter_translator/code/'
+filepath = 'C:/Users/Omar/Documents/GitHub/asl_letter_detector/code/'
 model_file = 'asl_detector_model.pt'
 model = torch.load(filepath + model_file)
 
