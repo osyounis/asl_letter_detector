@@ -13,7 +13,7 @@ ASL (American Sign Language) is a visual language that is expressed through diff
 # Executive Summary
 To answer my problem statement, I first has to find a dataset of ASL letters images. After finding a [dataset](#Dataset) that I could use, it was time to refine one of the base Yolov5 models on the custom dataset. 
 
-Initially this was attempted by using the [Google Colab Notebook](#Resources) that RoboFlow created. After several failed attempts, I chanced strategies to train the model on my local machine using my GPU with Yolov5's `train.py` file. This drastically decreased training time. Then I ran Yolov5's `eval.py` script to evaluate the performance of the model. The evaluation indicted that the model had a `mAP_0.5` score of about `93%` indicating the model performed really well. Finally I saved my trained model to a `.pt` file so that it could be used with other files and the `Streamlit` app.
+Initially this was attempted by using the [Google Colab Notebook](#Resources) that RoboFlow created. After several failed attempts, I changed strategies to train the model on my local machine using my GPU with Yolov5's `train.py` file. This drastically decreased training time. Then I ran Yolov5's `eval.py` script to evaluate the performance of the model. The evaluation indicted that the model had a `mAP_0.5` score of about `93%` indicating the model performed really well. Finally I saved my trained model to a `.pt` file so that it could be used with other files and the `Streamlit` app.
 
 Finally I created a Streamlit app to deploy the model. The Streamlit app was designed to detect in an uploaded image and to detect in real time with a webcam.
 
