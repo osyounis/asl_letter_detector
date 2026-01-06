@@ -1,3 +1,5 @@
+![Project Banner](./assets/asl-detector-banner.jpg)
+
 # Content
 - [Problem Statement](#Problem-Statement)
 - [Executive Summary](#Executive-Summary)
