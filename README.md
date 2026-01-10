@@ -1,6 +1,8 @@
+# ASL Letter Detector
+
 ![Project Banner](./assets/asl-detector-banner.jpg)
 
-# Content
+## Content
 - [Problem Statement](#Problem-Statement)
 - [Executive Summary](#Executive-Summary)
 - [Conclusion and Recommendations](#Conclusion-and-Recommendations)
@@ -8,11 +10,11 @@
 - [Resources](#Resources)
 
 
-# Problem Statement
+## Problem Statement
 ASL (American Sign Language) is a visual language that is expressed through different hand motions and positions to help those who are deaf or hard of hearing communicate. Many people who can hear are also learning this language. The goal of this project is to use machine learning and object detection to identify the different hand positions that correspond to the ASL alphabet. The model will then be deployed in an app to be used in image detection and real time detection.
 
 
-# Executive Summary
+## Executive Summary
 To answer my problem statement, I first has to find a dataset of ASL letters images. After finding a [dataset](#Dataset) that I could use, it was time to refine one of thebase Yolov5 models on the custom dataset. 
 
 Initially this was attempted by using the [Google Colab Notebook](#Resources) that RoboFlow created. After several failed attempts, I chanced strategies to train the model on my local machine using my GPU with Yolov5's `train.py` file. This drastically decreased training time. Then I ran Yolov5's `eval.py` script to evaluate the perforamce of the model. The evaluation indicted that the model had a `mAP_0.5` score of about `93%` indicating the model performed really well. Finally I saved my trained model to a `.pt` file so that it could be used with other files and the `Streamlit` app.
@@ -20,7 +22,7 @@ Initially this was attempted by using the [Google Colab Notebook](#Resources) th
 Finally I created a Streamlit app to deploy the model. The Streamlit app was designed to detect in an uploaded image and to detect in real time with a webcam.
 
 
-# Conclusion and Recommendations
+## Conclusion and Recommendations
 Although my model had a really good `mAP_0.5` score, it had a lot of trouble detecting and predicting ASL letters live. This is due to the dataset that the model used to train itself. If we look more closely at some of the images, they consist of mostly close ups of the hand in a position for a ASL letter. Contrast that with what frames the camera is feeding into the model. The frames consist of people, faces, objects in the background and more. Basically the images being feed into the model for prediction don't match the image style that were used to train the model.
 
 Going forward, I would want to actually create two different models. The first would be an object detection model that would detect hands in an image. Not hands in a particular position but any hands in an image. Also I would make sure I had way more images (closer to 10,000) and also make sure there are a bunch of things in the image other than hands. This way the model would be able to function better in a real world scenario where someone is using my model in front of their webcam.
@@ -32,7 +34,7 @@ I would also want to looking into augmenting the images I have to increase my da
 That being said, my current model well especally during Image Detection when the image somewhat is similar to the training images that were used (i.e. close up on hands with not much in the background). Having a `mAP_0.5` score of about `93%` is extremely good for a model. I used the model in my `Streamlit` app, and was confident in it's image detection when uploading a single image. Like I said before, real time detection still needs more work so that it can work smoothly.
 
 
-# Dataset
+## Dataset
 #### American Sign Language Letters Dataset (from RoboFlow)
 The dataset can be found [here](https://public.roboflow.com/object-detection/american-sign-language-letters).
 
@@ -49,7 +51,7 @@ The dataset contains 1728 images of size 416 pixels square. By default the augme
 For each image, 3 copies were made and the augmentations named were applied at random to the copies.
 
 
-# Resources
+## Resources
 
 
 #### Modeling and Training
